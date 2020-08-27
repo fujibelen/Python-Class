@@ -1,0 +1,30 @@
+''' bài làm code của Phương Thảo'''
+#bài 1.1
+
+my_list = input("nhập một chuỗi: ")
+print("kí tự lớn nhất là:", max(my_list))
+print("kí tự bé nhất là:", min(my_list))
+
+#bài 1.2
+so_nguyen = int(input("nhập vào 1 số nguyên dương:"))
+tong = 0
+kitu = 0
+for kitu in so_nguyen:
+    tong = tong + kitu
+print(tong)
+
+#bài 1.3
+string = input("nhập một chuỗi: ")
+print(string.count("t"))
+
+#bài 2
+so_dien = int(input("số điện đã dùng: "))
+if 0 <= so_dien <= 10:
+    bill = so_dien * 1500
+elif 100 < so_dien <= 300:
+    bill = so_dien * 2000
+else: bill = so_dien * 3000
+print("số tiền phải trả là {} đồng".format(bill))
+
+#bài 3
+n = int(input("nhập vào một số nguyên: "))
