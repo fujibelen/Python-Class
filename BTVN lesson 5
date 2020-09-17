@@ -1,0 +1,92 @@
+""" BÀI TẬP VỀ NHÀ BUỔI 05 - Tuple:
+Bài 00: Viết chương trình sinh một tuple chứa các phần tử có các kiểu dữ liệu khác nhau.
+    Sau đó, unpack các phần tử trong một tuple.
+"""
+
+my_tuple = "kieu", [1, 78, 9], ("du", "lieu", 7)
+print(my_tuple)
+a, b, c = my_tuple
+print(a, b, c)
+
+'''
+Bài 01: Viết chương trình chuyển một tuple sang thành list và ngược lại từ list sang tuple'''
+
+my_tuple = list(my_tuple)
+print(my_tuple)
+my_tuple = tuple(my_tuple)
+print(my_tuple)
+
+'''
+Bài 02: Viết chương trình đảo ngược một tuple.'''
+#không thể đảo ngược tuple do không thể thay đổi phần tủ tuple
+
+'''
+Bài 03: Viết chương trình đếm số lượng các phần tử trong một list đến khi gặp một phần tử kiểu tuple.
+'''
+my_list = [1, 3, ["bốn", "tuple"], (5, 2, "đây là tuple"), "đây không phải tuple"]
+count_list = 0
+for i in my_list:
+   x = type(i)
+   if x != tuple:
+       count_list += 1
+   else:
+       break
+
+print(count_list)
+
+
+'''
+Bài 04: Cho 1 list chứa các tuple không rỗng.
+    Viết chương trình sắp xếp list đó theo chiều tăng dần của phần tử cuối trong mỗi tuple.
+    Ví dụ: [(2, 5), (4, 1), (0, 0)]  => [(0, 0), (4, 1), (2, 5)]
+    '''
+
+
+'''
+Bài 05: Viết chương trình tìm ra tuple có phần tử thứ 2 là nhỏ nhất từ một list chứa các tuple.'''
+my_list = [(1, 5, 6), (3, 7, 2), (5, 2, 0), (4, 4, 8)]
+print(min(my_list[1]))
+
+
+'''
+Bài 06: Viết chương trình in ra phần tử thứ 4 và phần tử thứ 4 từ cuối lên trong một tuple.'''
+
+my_tuple = 1, 4, 0, 1, 2, 0, 6, 1 ,7
+print(my_tuple[3], my_tuple[-4])
+
+
+'''
+Bài 07: Viết chương trình kiểm tra 2 tuple có phần tử chung hay không.'''
+my_tuple_2 = 1, 7, 8, 13, 65, 9
+for i in my_tuple:
+    for x in my_tuple_2:
+        if i == x:
+            print(i)
+
+
+'''
+Bài 08: Viết chương trình kiểm tra xem tất cả các phần tử trong tuple có giống nhau hay không.'''
+my_tuple = 1, 4, 0, 1, 2, 0, 6, 1 ,7
+for i in my_tuple:
+    if my_tuple.count(i) > 1:
+        print("các phần tử trong tuple có lặp lại")
+    else:
+        print("các phần tử không lặp lại.")
+'''
+Bài 09: Viết chương trình tính tổng và tìm giá trị lớn nhất trong tuple chứa các số thực.'''
+my_tuple = 1.5, 4.9, 0.13, 1.89, 2, 0.7, 6, 1 ,7
+print("tổng giá trị các số thực trong tuple là: ", round(sum(my_tuple), 2))
+print("giá trị lớp nhất của tuple là: ", max(my_tuple))
+
+'''
+Bài 10: Cho list sau: ["www.hust.edu.vn", "www.wikipedia.org", "www.asp.net", "www.amazon.com"]
+    Viết chương trình để in ra hậu tố (vn, org, net, com) trong các tên miền website trong list trên.'''
+
+
+
+
+'''
+Bài 11: Viết chương trình tìm từ dài nhất trong một câu nhập vào từ bàn phím.
+'''
+
+
