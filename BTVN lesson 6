@@ -1,0 +1,169 @@
+""" BÀI TẬP VỀ NHÀ BUỔI 06 - DICTIONARY:
+Bài 00: Viết chương trình tính tích value của các phần tử trong một dict"""
+# my_dict = {
+#     1: 3,
+#     4: 5,
+#     6: 9
+# }
+# tich = 1
+# for key in my_dict:
+#     tich = tich * my_dict[key]
+# print(tich)
+
+"""
+Bài 01: Viết chương trình tìm giá trị lớn nhất và giá trị nhỏ nhất của trường value trong một dict"""
+my_dict = {
+    1: 3,
+    4: 5,
+    6: 9
+}
+print(min(my_dict[key] for key in my_dict))
+print(max(my_dict[key] for key in my_dict))
+
+"""
+Bài 02: Viết chương trình sắp xếp các phần tử của dict theo chiều tăng dần của key"""
+my_dict = {
+    1: 3,
+    7: 5,
+    6: 9
+}
+list_value = {}
+list_key = sorted(my_dict.keys())
+for key in list_key:
+    list_value.update({key: my_dict.get(key)})
+print(list_value)
+
+"""
+Bài 03: Viết chương trình lấy các các giá trị không trùng lặp từ dict
+"""
+my_dict = {
+    1: 3,
+    7: 5,
+    6: 9,
+    9: 3
+}
+list_value = set()
+for key in my_dict:
+    list_value.add(my_dict.get(key))
+print(list_value)
+
+"""
+Bài 04: Viết chương trình tìm ra 3 phần tử có key lớn nhất trong dict"""
+
+my_dict = {
+    1: 3,
+    4: 5,
+    6: 9
+}
+print(my_dict.pop(max(my_dict)))
+print(my_dict.pop(max(my_dict)))
+print(my_dict.pop(max(my_dict)))
+
+"""
+Bài 05: Viết chương trình tạo ra dict có nhiều hơn 3 phần tử, value của mỗi phần tử là một list có lớn hơn 5 phần tử.
+        Truy cập và in ra phần tử thứ 5 trong phần value của mỗi phần tử trong dict"""
+my_dict = {
+    1: [1, 2, 3, 4, 5],
+    4: [1, 2, 3, 4, 6],
+    6: [1, 2, 3, 4, 7],
+    9: [1, 2, 3, 4, 8]
+}
+for key in my_dict:
+    print(my_dict.get(key)[4])
+
+"""
+Bài 06: Viết chương trình lấy ra các phần tử key-value xuất hiện trong cả 2 dict"""
+my_dict1 = {
+    1: 3,
+    4: 5,
+    3: 2,
+    6: 9
+}
+my_dict2 = {
+    1: 4,
+    4: 5,
+    3: 2,
+    6: 10
+}
+new_dict = {}
+for key in my_dict1:
+    if key in my_dict2 and my_dict1.get(key) == my_dict2.get(key):
+        new_dict.update({key: my_dict1.get(key)})
+print(new_dict)
+
+
+"""
+Bài 07: Viết chương trình tạo dict mới bằng cách trích xuất dữ liệu từ dict ban đầu theo tập các key cho trước
+Ví dụ:
+    dict ban đầu: sampleDict = {"name": "Kelly", "age":25, "salary": 8000, "city": "New york"}
+    keys = ["name", "salary"]
+    Output: {'name': 'Kelly', 'salary': 8000}"""
+sampleDict = {"name": "Kelly", "age":25, "salary": 8000, "city": "New york"}
+keys = ["name", "salary"]
+new_dict = {}
+for key in sampleDict:
+    if key in keys:
+        new_dict.update({key: sampleDict.get(key)})
+print(new_dict)
+"""
+Bài 08: Viết chương trình lấy ra top 3 phần tử có giá trị lớn nhất từ dict"""
+
+my_dict = {
+    1: 3,
+    4: 5,
+    6: 9,
+    2: 7,
+    3: 10,
+    0: 13
+}
+my_list = []
+new_list = []
+count = 0
+for key in my_dict:
+    my_list.append(my_dict.get(key))
+for i in my_list:
+    if i == max(my_list) and count <=3:
+        count += 1
+    new_list.append(i)
+    my_list.remove(i)
+
+print(my_list)
+print(new_list)
+
+
+"""
+Bài 09: Viết hàm đếm số lần xuất hiện các ký tự trong một String
+Ví dụ:
+    Input: ‘Stringings’
+    Output: {‘S’: 1, ‘t’: 1, ‘r’: 1, ’i’: 2, ‘n’: 2, ‘g’: 2, ‘s’: 1}"""
+my_string = "Stringings"
+my_list = list(my_string)
+count = 0
+my_dict = {}
+for i in my_list:
+    my_dict.update({i: my_list.count(i)})
+print(my_dict)
+
+
+"""
+Bài 10: Viết hàm đếm số lần xuất hiện các từ đơn trong một đoạn văn bản"""
+my_string = "day la mot doan van ban co mot dong"
+my_list = my_string.split()
+my_dict = {}
+for i in my_list:
+    my_dict.update({i: my_list.count(i)})
+print(my_dict)
+"""
+Bài 11: Viết chương trình để sinh ra dict mới từ list các dict có dạng như trong ví dụ:
+Ví dụ:
+    Input: [{'item': 'item1', 'amount': 400}, {'item': 'item2', 'amount': 300}, {'item': 'item1', 'amount': 750}]
+    Output: {'item1': 1150, 'item2': 300}"""
+my_list = [{'item': 'item1', 'amount': 400}, {'item': 'item2', 'amount': 300}, {'item': 'item1', 'amount': 750}]
+my_dict = {}
+for i in my_list:
+    for key in i:
+        my_dict.update({key: i.get(key)})
+
+print(my_dict)
+
+
